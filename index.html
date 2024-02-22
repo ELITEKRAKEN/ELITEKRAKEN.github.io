@@ -3,23 +3,60 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruleta</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>ASIANJEFF ES DIOS</title>
+    <style>
+        html {
+            font-family: arial;
+        }
+        #ruleta {
+            transition: transform 2s ease-out;
+            width: 400px;
+        }
+        #flecha {
+            position: relative;
+            top: -190px;
+            left: -20px;
+        }
+    </style>
   </head>
   <body>
-    <div class="container">
-        <div id="roulette" class="roulette"></div>
-        <button id="spinButton">Girar</button>
-    </div>
-    <script src="script.js"></script>
     <p><h1>ASIANJEFF ES DIOS</h1></p>
     <p><img src="156c24346697248ed4ae509766508aa7~c5_720x720.jpeg"><img src="igual.png" style="width:200px"><img style="width: 250px" src="jesus.jpg"></p>
     <p><h6>TRATA BIEN A JEFRY</h6></p>
     <p><a href="https://es.wikipedia.org/wiki/Blattodea">PELIGRO</a></p></p>
-    <button onclick="contar()">Acariciar a JEFRY</button>
-    <button onclick="restar()">PEGAR A JEFRY</button>
+    
+    <img src="ruleta.png" onclick="girar()" id="ruleta">
+    <strong id="flecha"><</strong>
     <p>JEFRY TIENE <span id="contador">plo</span> VIDAS</p>
     <script>
+        let ruleta = document.getElementById("ruleta");
+        let flecha = document.getElementById("flecha");
+        let grados = 0;
+        let girando = false;
+        function girar() {
+            if (!girando) {
+                girando = true;
+                flecha.innerText = "<";
+                grados = Math.random() * 360;
+                ruleta.style.transform = "rotate(" + (grados + 360 * 4) + "deg)";
+                setTimeout(girar2, 2000);
+            }
+        }
+        function girar2() {
+            ruleta.style.transition = "none";
+            ruleta.style.transform = "rotate(" + grados + "deg)";
+            ruleta.offsetHeight;
+            ruleta.style.transition = null;
+            if (grados > 90 && grados < 270) {
+                flecha.innerText = "< pegar";
+                restar();
+            } else {
+                flecha.innerText = "< acariciar";
+                contar();
+            }
+            girando = false;
+        }
+      
         document.getElementById("contador").innerText = localStorage.getItem("contar")
         function contar() {
             localStorage.setItem("contar", Number(localStorage.getItem("contar")) + 1)
