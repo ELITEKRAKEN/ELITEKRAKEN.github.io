@@ -5,6 +5,7 @@
   <p><h6>Y ESTO PEQUEÑO</h6></p>
   <p><a href="https://es.wikipedia.org/wiki/Blattodea">PELIGRO</a></p></p>
    <button onclick="contar()">Acariciar a JEFRY</button>
+  <button onclick="contar()">PEGAR A JEFRY</button>
         <p>HAS ACARICIADO A JEFRY <span id="contador">plo</span> veces</p>
         <script>
             document.getElementById("contador").innerText = localStorage.getItem("contar")
@@ -12,13 +13,10 @@
                 localStorage.setItem("contar", Number(localStorage.getItem("contar")) + 1)
                 document.getElementById("contador").innerText = localStorage.getItem("contar")
             }
-        </script>
-  <button onclick="contar()">PEGAR A JEFRY</button>
-<p>HAS PEGADO A JEFRY <SPAN id="contador">plo</span> veces</p>
-    <script>
+          
                   document.getElementById("contador").innerText = localStorage.getItem("contar")
             function contar() {
-                localStorage.setItem("contar", Number(localStorage.getItem("contar")) + 1)
+                localStorage.setItem("contar", Number(localStorage.getItem("contar")) - 1)
                 document.getElementById("contador").innerText = localStorage.getItem("contar")
             }
         </script>
